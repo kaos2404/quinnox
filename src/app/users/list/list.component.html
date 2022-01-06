@@ -32,7 +32,7 @@
           *ngFor="let user of paginate.items; let i = index"
           [routerLink]="['/users', user.id]"
         >
-          <td>{{ i + 1 }}</td>
+          <td>{{ (paginate.page.value - 1) * 20 + i + 1 }}</td>
           <td>{{ user.firstName }}</td>
           <td>{{ user.lastName }}</td>
           <td>{{ user.email }}</td>
