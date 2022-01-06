@@ -6,13 +6,14 @@ import { catchError, map, switchMap, take, tap } from "rxjs/operators";
 import { environment } from "src/environments/environment";
 
 import { User } from "../types/user";
+import { CommonService } from "./common.service";
 
 @Injectable()
 export class UserService {
   public users: BehaviorSubject<User[]>;
   public projects: Observable<string[]>;
   public designations: Observable<string[]>;
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private common: CommonService) {
     this.users = new BehaviorSubject<User[]>([]);
 
     this.projects = this.users.pipe(

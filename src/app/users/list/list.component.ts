@@ -1,8 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 import { FormControl, FormGroup } from "@angular/forms";
-import { ActivatedRoute, Router } from "@angular/router";
+import { ActivatedRoute } from "@angular/router";
 import { BehaviorSubject, Observable, of } from "rxjs";
 import { catchError, filter, map, switchMap, take } from "rxjs/operators";
+import { CommonService } from "src/app/shared/services/common.service";
 
 import { UserService } from "../../shared/services/user.service";
 import { User } from "../../shared/types/user";
@@ -30,7 +31,7 @@ export class UserListComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     public service: UserService,
-    private router: Router
+    private common: CommonService
   ) {
     this.showFilters = false;
     this.filters = new FormGroup({
@@ -123,6 +124,7 @@ export class UserListComponent implements OnInit {
           take(1),
           map((users) => this.filter(users, filters as Filter)),
           catchError((err) => {
+            this.common.error('Unable to filter user list');
             console.error('Error occured on filtering list', err);
             return of([]);
           })
