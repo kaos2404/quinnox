@@ -1,0 +1,52 @@
+.page-header {
+  display: flex;
+  .back {
+    margin-left: auto;
+  }
+}
+
+.icon {
+  display: flex;
+  i {
+    margin: 0 auto;
+    font-size: 10rem;
+  }
+}
+
+.user-details {
+  .row {
+    min-height: 4rem;
+    .col-md-6,
+    .col-md-12 {
+      display: flex;
+      align-items: center;
+      font-size: 1.75rem;
+      .label {
+        font-weight: bold;
+        margin-right: 2rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .icon {
+    i {
+      font-size: 4rem;
+    }
+  }
+
+  .user-details {
+    min-height: 2rem;
+    .row {
+      .col-md-6,
+      .col-md-12 {
+        font-size: 1rem;
+        .label {
+          font-weight: bold;
+          margin-right: 0.5rem;
+        }
+      }
+    }
+  }
+}

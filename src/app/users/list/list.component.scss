@@ -1,0 +1,19 @@
+tbody {
+  tr {
+    cursor: pointer;
+  }
+}
+.page-header {
+  display: flex;
+  .bi-filter {
+    margin-left: auto;
+  }
+}
+.icon {
+  font-size: 1.75rem;
+  cursor: pointer;
+}
+
+.form-label {
+  font-weight: bold;
+}

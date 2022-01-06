@@ -1,0 +1,52 @@
+<ng-content></ng-content>
+<div class="pagination-container primary-border-all" *ngIf="list && list.length > 0">
+  <ul>
+    <li
+      class="option first-page primary-border-right option-item"
+      [ngClass]="{ disabled: page.value === 1 }"
+      (click)="onFirstPage($event)"
+    >
+      <span><span>First</span></span>
+    </li>
+    <li
+      class="option prev-page primary-border-right option-item"
+      [ngClass]="{ disabled: page.value === 1 }"
+      (click)="onPreviousPage($event)"
+    >
+      <span><span>Prev</span></span>
+    </li>
+    <li>
+      <ul>
+        <ng-container *ngFor="let i of pages">
+          <li
+            class="option page primary-border-right option-item"
+            *ngIf="i >= scope[0] && i <= scope[1]"
+            [ngClass]="{ highlight: page.value === i }"
+            (click)="onPageClicked($event, i)"
+          >
+            <span
+              ><span>{{ i }}</span></span
+            >
+          </li>
+        </ng-container>
+      </ul>
+    </li>
+    <li
+      class="option next-page primary-border-right option-item"
+      [ngClass]="{ disabled: page.value === pages.length }"
+      (click)="onNextPage($event)"
+    >
+      <span><span>Next</span></span>
+    </li>
+    <li
+      class="option last-page primary-border-right option-item"
+      [ngClass]="{ disabled: page.value === pages.length }"
+      (click)="onLastPage($event)"
+    >
+      <span>
+        <span>Last</span>
+      </span>
+    </li>
+  </ul>
+  <div class="total-items">Total results: {{ totalItems }}</div>
+</div>
