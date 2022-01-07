@@ -29,6 +29,27 @@
   }
 }
 
+@media screen and (max-width: 1200px) {
+  .icon {
+    i {
+      font-size: 6rem;
+    }
+  }
+
+  .user-details {
+    min-height: 2rem;
+    .row {
+      .col-md-6,
+      .col-md-12 {
+        font-size: 1.25rem;
+        .label {
+          margin-right: 0.5rem;
+        }
+      }
+    }
+  }
+}
+
 @media screen and (max-width: 768px) {
   .icon {
     i {
@@ -43,7 +64,6 @@
       .col-md-12 {
         font-size: 1rem;
         .label {
-          font-weight: bold;
           margin-right: 0.5rem;
         }
       }
